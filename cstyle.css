@@ -1,6 +1,6 @@
 /* Общие стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -28,6 +28,9 @@ nav {
     color: white;
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -39,18 +42,22 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
-    color: white;
+    color: #4facfe;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #00f2fe;
+    background-color: #4facfe;
+    color: white;
+    border-radius: 6px;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Основной контент */
@@ -71,6 +78,8 @@ section {
 
 section h2 {
     color: #4facfe;
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
 ul {
@@ -79,15 +88,29 @@ ul {
     gap: 15px;
     padding-left: 0;
     list-style: none;
+    align-items: center;
+    justify-items: center;
 }
 
 ul li {
     background: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 0;
     text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Подвал */
@@ -95,8 +118,9 @@ footer {
     text-align: center;
     background: #333;
     color: white;
-    padding: 10px 0;
+    padding: 15px 0;
     margin-top: 20px;
+    font-size: 0.9em;
 }
 
 /* Анимации */
@@ -133,5 +157,28 @@ footer {
 
     header h1 {
         font-size: 2em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    ul li {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    ul li {
+        padding: 10px;
     }
 }
