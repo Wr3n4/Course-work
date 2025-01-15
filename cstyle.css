@@ -22,6 +22,37 @@ header h1 {
     animation: fadeIn 2s ease-in-out;
 }
 
+/* Ограничение размеров изображений */
+img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Сетка изображений 2x2 для секции "Переход в 3D" */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 10px; /* Расстояние между изображениями */
+    margin-top: 20px;
+}
+
+image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Навигация */
 nav {
     background: #333;
@@ -60,6 +91,49 @@ nav ul li a:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Адаптивное меню */
+nav input[type="checkbox"] {
+    display: none;
+}
+
+nav label {
+    display: none;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+nav ul {
+    flex-direction: row;
+    max-height: none;
+    overflow: visible;
+    transition: max-height 0.3s ease;
+}
+
+nav input[type="checkbox"]:checked ~ ul {
+    max-height: 500px;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    nav label {
+        display: block;
+    }
+
+    nav ul {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
 /* Основной контент */
 main {
     padding: 20px;
@@ -82,36 +156,43 @@ section h2 {
     margin-bottom: 15px;
 }
 
-ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    padding-left: 0;
-    list-style: none;
-    align-items: center;
-    justify-items: center;
+/* Общий стиль для ul, кроме изображений и навигации */
+main ul {
+    display: grid; /* Включаем grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Автоматическая адаптация колонок */
+    gap: 15px; /* Расстояние между элементами */
+    list-style: none; /* Убираем стандартные маркеры */
+    padding: 0;
+    margin: 20px 0;
 }
 
-ul li {
-    background: #f0f0f0;
+main ul li {
+    font-weight: bold; /* Жирный шрифт для текста */
     padding: 15px;
+    background: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 0;
     text-align: center;
-    font-size: 1em;
-    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для выделения */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-ul li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+main ul li:hover {
+    transform: translateY(-5px); /* Подъем при наведении */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Стили для вложенных ul */
+main ul ul {
+    grid-template-columns: none; /* Вложенные списки не используют grid */
+    padding-left: 20px; /* Отступ для вложенных списков */
+}
+
+main ul ul li {
+    font-weight: normal; /* Обычный шрифт для вложенных элементов */
+    background: #f9f9f9; /* Светлый фон для вложенных списков */
+    box-shadow: none; /* Убираем тень */
+}
+
 
 /* Подвал */
 footer {
@@ -145,29 +226,6 @@ footer {
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    ul li {
-        font-size: 0.9em;
-    }
-}
-
 @media (max-width: 480px) {
     nav ul li a {
         padding: 8px 15px;
@@ -176,9 +234,5 @@ footer {
 
     header h1 {
         font-size: 1.8em;
-    }
-
-    ul li {
-        padding: 10px;
     }
 }
