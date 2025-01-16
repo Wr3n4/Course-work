@@ -1,10 +1,15 @@
+/* Общее правило для box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* Общие стили */
 body {
     font-family: "Poppins", sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #4facfe;
     color: #333;
 }
 
@@ -22,28 +27,33 @@ header h1 {
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Ограничение размеров изображений */
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 img {
-    max-width: 90%;
+    max-width: 75%;
     height: auto;
     border-radius: 10px;
     display: block;
     margin: 10px auto;
 }
 
-/* Сетка изображений 2x2 для секции "Переход в 3D" */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Две колонки */
-    gap: 10px; /* Расстояние между изображениями */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
     margin-top: 20px;
 }
 
-image-grid img {
+.image-grid img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -52,16 +62,100 @@ image-grid img {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+.future {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.cyberpunk {
+    grid-column: span 2;
+}
+
+/* Стили для формы */
+.form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4facfe;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+fieldset {
+    border: 2px solid #4facfe;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f4f4f9;
+}
+
+legend {
+    font-weight: bold;
+    color: #4facfe;
+    font-size: 1.4em;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #4facfe;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00f2fe;
+}
 
 /* Навигация */
 nav {
     background: #333;
     color: white;
-    padding: 10px 0;
+    padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
+    text-align: center;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 nav ul {
@@ -73,13 +167,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: #4facfe;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2em;
     transition: all 0.3s ease;
 }
 
@@ -158,41 +253,43 @@ section h2 {
 
 /* Общий стиль для ul, кроме изображений и навигации */
 main ul {
-    display: grid; /* Включаем grid */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Автоматическая адаптация колонок */
-    gap: 15px; /* Расстояние между элементами */
-    list-style: none; /* Убираем стандартные маркеры */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
     padding: 0;
     margin: 20px 0;
 }
 
 main ul li {
-    font-weight: bold; /* Жирный шрифт для текста */
+    font-weight: bold;
     padding: 15px;
-    background: #fff;
+    background: #4facfe8e;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+    vertical-align: middle;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 main ul li:hover {
-    transform: translateY(-5px); /* Подъем при наведении */
+    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Стили для вложенных ul */
 main ul ul {
-    grid-template-columns: none; /* Вложенные списки не используют grid */
-    padding-left: 20px; /* Отступ для вложенных списков */
+    grid-template-columns: none;
+    padding-left: 20px;
 }
 
 main ul ul li {
-    font-weight: normal; /* Обычный шрифт для вложенных элементов */
-    background: #f9f9f9; /* Светлый фон для вложенных списков */
-    box-shadow: none; /* Убираем тень */
+    font-weight: normal;
+    background: #f4f4f9;
+    box-shadow: none;
 }
-
 
 /* Подвал */
 footer {
@@ -226,13 +323,60 @@ footer {
 }
 
 /* Адаптивность */
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
     nav ul li a {
-        padding: 8px 15px;
+        font-size: 1.1em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 1.4em;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul li a {
         font-size: 0.9em;
     }
 
-    header h1 {
-        font-size: 1.8em;
+    section h2 {
+        font-size: 1.2em;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
     }
 }
