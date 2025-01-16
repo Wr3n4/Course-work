@@ -11,39 +11,42 @@
     <link rel="stylesheet" type="text/css" href="cstyle.css">
 </head>
 <body>
+    <!-- Skip-link для навигации с клавиатуры -->
+    <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
     <!-- Шапка сайта -->
-    <header>
+    <header role="banner">
         <h1>Технологии разработки игр и эволюция их развития</h1>
     </header>
 
     <!-- Навигация -->
-    <nav>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle">☰</label>
-        <ul>
-            <li><a href="#intro">Введение</a></li>
-            <li><a href="#early-years">Ранние годы</a></li>
-            <li><a href="#transition-to-3d">Переход в 3D</a></li>
-            <li><a href="#modern-tech">Современные технологии</a></li>
-            <li><a href="#future">Будущее</a></li>
-            <li><a href="login.html">Подписка на рассылку</a></li>
+    <nav aria-label="Основная навигация" role="navigation">
+        <input type="checkbox" id="menu-toggle" aria-label="Открыть меню">
+        <label for="menu-toggle" aria-label="Открыть меню">☰</label>
+        <ul role="menu">
+            <li role="none"><a href="#intro" role="menuitem">Введение</a></li>
+            <li role="none"><a href="#early-years" role="menuitem">Ранние годы</a></li>
+            <li role="none"><a href="#transition-to-3d" role="menuitem">Переход в 3D</a></li>
+            <li role="none"><a href="#modern-tech" role="menuitem">Современные технологии</a></li>
+            <li role="none"><a href="#future" role="menuitem">Будущее</a></li>
+            <li role="none"><a href="login.html" role="menuitem">Подписка на рассылку</a></li>
         </ul>
     </nav>
     
     <!-- Основной контент -->
-    <main>
+    <main id="main-content" role="main">
         <!-- Введение -->
-        <section id="intro">
-            <h2>Введение</h2>
+        <section id="intro" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">Введение</h2>
             <p>Технологии разработки игр прошли долгий путь с момента их появления. От простых пиксельных игр до современных шедевров с реалистичной графикой — эволюция впечатляет. В этой статье мы рассмотрим ключевые этапы развития технологий и их влияние на игровую индустрию. Игры стали не только развлечением, но и важным элементом культуры, искусства и даже бизнеса, привлекая миллионы людей по всему миру.</p>
             <div class="image-grid">
-                <div class="cyberpunk"><img src="imgs/vrman.jpg" alt="vrman_img"></div>
+                <div class="cyberpunk"><img src="imgs/vrman.jpg" alt="Человек в VR-шлеме, погруженный в виртуальную реальность"></div>
             </div>
         </section>
 
         <!-- Ранние годы -->
-        <section id="early-years">
-            <h2>Ранние годы</h2>
+        <section id="early-years" aria-labelledby="early-years-heading">
+            <h2 id="early-years-heading">Ранние годы</h2>
             <p>В 1970-х и 1980-х годах игры были простыми. Использовались базовые технологии для создания 2D-графики и минималистичных механик. Например, такие игры, как Pong и Space Invaders, положили начало индустрии. Эти игры отличались простотой, но их инновации вдохновили многих разработчиков. В то время компьютеры были дорогими и ограниченными в возможностях, что накладывало ограничения на сложность игр. Однако именно в этот период были заложены основы того, что мы сегодня называем игровой индустрией.</p>
             <p>Основные технологии того времени включали:</p>
             <ul>
@@ -52,13 +55,13 @@
                 <li>Простые звуковые эффекты, созданные с помощью чипов, которые могли воспроизводить лишь ограниченное количество звуков.</li>
             </ul>
             <div class="image-grid">
-                <div class="cyberpunk"><img src="imgs/2d.jpg" alt="2d games"></div>
+                <div class="cyberpunk"><img src="imgs/2d.jpg" alt="Пример 2D-игры из 1980-х годов"></div>
             </div>
         </section>
 
         <!-- Переход в 3D -->
-        <section id="transition-to-3d">
-            <h2>Переход в 3D</h2>
+        <section id="transition-to-3d" aria-labelledby="transition-to-3d-heading">
+            <h2 id="transition-to-3d-heading">Переход в 3D</h2>
             <p>В 1990-х годах началась эпоха 3D-игр. Появились первые движки, позволявшие разработчикам создавать объемные миры. Одной из первых успешных 3D-игр стала Doom, которая популяризировала жанр шутеров от первого лица. В это время также началась разработка более сложных механик и алгоритмов для создания динамичных миров. Программное обеспечение стало гораздо более мощным, а оборудование — доступным, что открыло новые горизонты для разработчиков.</p>
             <p>Ключевые достижения:</p>
             <ul>
@@ -67,16 +70,16 @@
                 <li>Улучшение физики и освещения в играх, что позволило создать более реалистичную и увлекательную атмосферу.</li>
             </ul>
             <div class="image-grid">
-                <img src="imgs/doom.jpg" alt="doom">
-                <img src="imgs/1st_3d.png" alt="Descent">
-                <img src="imgs/mario64.jpg" alt="mario64">
-                <img src="imgs/mafia.jpg" alt="mafia">
+                <img src="imgs/doom.jpg" alt="Игра Doom, одна из первых 3D-игр">
+                <img src="imgs/1st_3d.png" alt="Игра Descent, один из первых 3D-шутеров">
+                <img src="imgs/mario64.jpg" alt="Super Mario 64, революционная 3D-игра">
+                <img src="imgs/mafia.jpg" alt="Mafia, игра с открытым миром">
             </div>
         </section>
 
         <!-- Современные технологии -->
-        <section id="modern-tech">
-            <h2>Современные технологии</h2>
+        <section id="modern-tech" aria-labelledby="modern-tech-heading">
+            <h2 id="modern-tech-heading">Современные технологии</h2>
             <p>С начала 2000-х годов разработчики начали использовать мощные движки, такие как Unreal Engine и Unity. Технологии рейтрейсинга позволили достичь невероятного уровня реализма в графике. Игры стали более интерактивными, благодаря развитию искусственного интеллекта. Современные технологии также позволяют создавать игры с открытым миром, где игроки могут исследовать огромные пространства и взаимодействовать с окружающим миром в реальном времени.</p>
             <p>Современные технологии включают:</p>
             <ul>
@@ -86,15 +89,15 @@
                 <li>Использование облачных технологий для стриминга игр, что позволяет играть в высококачественные игры на устройствах с низкими характеристиками.</li>
             </ul>
             <div class="image-grid">
-                <img src="imgs/acs.jpeg" alt="assasin's creed shadows">
-                <img src="imgs/tlou2.jpg" alt="the last of us 2">
-                <div class="cyberpunk"><img src="imgs/cyberpunk.jpg" alt="cynerpunk 2077"></div>
+                <img src="imgs/acs.jpeg" alt="Assassin's Creed Shadows, современная игра с открытым миром">
+                <img src="imgs/tlou2.jpg" alt="The Last of Us Part II, игра с реалистичной графикой">
+                <div class="cyberpunk"><img src="imgs/cyberpunk.jpg" alt="Cyberpunk 2077, игра с продвинутой графикой"></div>
             </div>
         </section>
 
         <!-- Будущее -->
-        <section id="future">
-            <h2>Будущее</h2>
+        <section id="future" aria-labelledby="future-heading">
+            <h2 id="future-heading">Будущее</h2>
             <p>Будущее игровой индустрии связано с виртуальной реальностью (VR) и дополненной реальностью (AR). Эти технологии открывают новые возможности для взаимодействия с игровым миром. Кроме того, развитие искусственного интеллекта может привести к созданию полностью адаптивных и реалистичных игровых персонажей. В будущем игры могут стать еще более захватывающими и погружающими, а взаимодействие с ними будет происходить через новые устройства и интерфейсы.</p>
             <p>Ожидаемые тренды:</p>
             <ul>
@@ -104,14 +107,14 @@
                 <li>Создание игр с полностью процедурно генерируемыми мирами, которые будут уникальными для каждого игрока.</li>
             </ul>
             <div class="image-grid future">
-                <div class="cyberpunk"><img src="imgs/future.jpg" alt="future gaming"></div>
-                <img src="imgs/vr.jpg" alt="vr">
+                <div class="cyberpunk"><img src="imgs/future.jpg" alt="Будущее игровой индустрии"></div>
+                <img src="imgs/vr.jpg" alt="Виртуальная реальность">
             </div>
         </section>           
     </main>
 
     <!-- Подвал сайта -->
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 WЯENCHY's inc. Все права защищены.</p>
     </footer>
 </body>

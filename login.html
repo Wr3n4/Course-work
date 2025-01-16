@@ -19,26 +19,26 @@
                 <fieldset>
                     <legend>Личная информация</legend>
                     <label for="name">Имя: </label>
-                    <input type="text" id="name" name="name" placeholder="Введите свое имя" required>
+                    <input type="text" id="name" name="name" placeholder="Введите свое имя" required aria-required="true">
                     <label for="birthdate">Дата рождения: </label>
-                    <input type="date" id="birthdate" name="birthdate" required>
+                    <input type="date" id="birthdate" name="birthdate" required aria-required="true">
                     <label>Пол: </label>
                     <div class="gender-option">
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">Мужской</label>
+                        <input type="radio" id="male" name="gender" value="male" aria-labelledby="male-label">
+                        <label id="male-label" for="male">Мужской</label>
                     </div>
             
                     <div class="gender-option">
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Женский</label>
+                        <input type="radio" id="female" name="gender" value="female" aria-labelledby="female-label">
+                        <label id="female-label" for="female">Женский</label>
                     </div>
                 </fieldset>
                 <fieldset>
                     <legend>Контактные данные</legend>
                     <label for="email">Email: </label>
-                    <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    <input type="email" id="email" name="email" placeholder="example@mail.com" required aria-required="true">
                     <label for="phone">Телефон: </label>
-                    <input type="tel" id="phone" name="phone" placeholder="+X (XXX) XXX-XX-XX" required>
+                    <input type="tel" id="phone" name="phone" placeholder="+X (XXX) XXX-XX-XX" required aria-required="true">
                 </fieldset>
                 <button type="submit">Регистрация</button>
             </form>

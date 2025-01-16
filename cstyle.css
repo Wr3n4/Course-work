@@ -1,18 +1,36 @@
 /* Общее правило для box-sizing */
 *, *::before, *::after {
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Общие стили */
 body {
-    font-family: "Poppins", sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     background-color: #4facfe;
     color: #333;
 }
 
+/* Skip-link для навигации с клавиатуры */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000;
+    transition: top 0.3s ease;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Шапка сайта */
 header {
     background: linear-gradient(90deg, #4facfe, #00f2fe);
     color: white;
@@ -34,12 +52,14 @@ header a {
     font-size: 1.2em;
 }
 
+/* Изображения */
 img {
     max-width: 75%;
     height: auto;
     border-radius: 10px;
     display: block;
     margin: 10px auto;
+    background-color: #f4f4f9; /* Фон для изображений, если они не загрузились */
 }
 
 .image-grid {
@@ -58,7 +78,7 @@ img {
 }
 
 .image-grid img:hover {
-    transform: scale(1.05); /* Легкое увеличение при наведении */
+    transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -72,79 +92,6 @@ img {
     grid-column: span 2;
 }
 
-/* Стили для формы */
-.form-container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #4facfe;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-form {
-    display: grid;
-    gap: 20px;
-}
-
-fieldset {
-    border: 2px solid #4facfe;
-    padding: 15px;
-    border-radius: 10px;
-    background: #f4f4f9;
-}
-
-legend {
-    font-weight: bold;
-    color: #4facfe;
-    font-size: 1.4em;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    margin-bottom: 15px;
-}
-
-input[type="radio"] {
-    margin-right: 5px;
-}
-
-button {
-    background-color: #4facfe;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #00f2fe;
-}
-
 /* Навигация */
 nav {
     background: #333;
@@ -152,7 +99,6 @@ nav {
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
-    text-align: center;
     top: 0;
     z-index: 1000;
     width: 100%;
@@ -175,10 +121,12 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2em;
+    padding: 5px 10px;
     transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
     background-color: #4facfe;
     color: white;
     border-radius: 6px;
@@ -251,7 +199,7 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* Общий стиль для ul, кроме изображений и навигации */
+/* Списки */
 main ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -279,16 +227,75 @@ main ul li:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Стили для вложенных ul */
-main ul ul {
-    grid-template-columns: none;
-    padding-left: 20px;
+/* Формы */
+.form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-main ul ul li {
-    font-weight: normal;
+form {
+    display: grid;
+    gap: 20px;
+}
+
+fieldset {
+    border: 2px solid #4facfe;
+    padding: 15px;
+    border-radius: 10px;
     background: #f4f4f9;
-    box-shadow: none;
+}
+
+legend {
+    font-weight: bold;
+    color: #4facfe;
+    font-size: 1.4em;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 15px;
+    background-color: #fff;
+    color: #333;
+}
+
+input:focus,
+select:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+button {
+    background-color: #4facfe;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00f2fe;
 }
 
 /* Подвал */
@@ -303,12 +310,8 @@ footer {
 
 /* Анимации */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideIn {
@@ -324,59 +327,23 @@ footer {
 
 /* Адаптивность */
 @media (max-width: 1024px) {
-    header h1 {
-        font-size: 2.2em;
-    }
-
-    nav ul li a {
-        font-size: 1.1em;
-    }
-
-    section h2 {
-        font-size: 1.6em;
-    }
+    header h1 { font-size: 2.2em; }
+    nav ul li a { font-size: 1.1em; }
+    section h2 { font-size: 1.6em; }
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    nav ul li a {
-        font-size: 1em;
-    }
-
-    section h2 {
-        font-size: 1.4em;
-    }
-
-    main {
-        padding: 15px;
-    }
+    header h1 { font-size: 2em; }
+    nav ul li a { font-size: 1em; }
+    section h2 { font-size: 1.4em; }
+    main { padding: 15px; }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    nav ul li a {
-        font-size: 0.9em;
-    }
-
-    section h2 {
-        font-size: 1.2em;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    footer {
-        font-size: 0.8em;
-    }
-
-    .image-grid {
-        grid-template-columns: 1fr;
-    }
+    header h1 { font-size: 1.8em; }
+    nav ul li a { font-size: 0.9em; }
+    section h2 { font-size: 1.2em; }
+    main { padding: 10px; }
+    footer { font-size: 0.8em; }
+    .image-grid { grid-template-columns: 1fr; }
 }
